@@ -21,11 +21,11 @@ const AvailableCoinsView: FC<AvailableCoinsProps> = () => {
   }, [debouncedSearch]);
 
   return (
-    <div className="px-11 py-20 bg-gray-10">
-      <h1 className="text-purple-10 text-3xl font-bold">AVAILABLE COINS</h1>
+    <div className="px-11 py-20 dark:bg-gray-10 bg-white-10">
+      <h1 className="text-purple-10 text-3xl font-bold ">AVAILABLE COINS</h1>
       <input
         type="text"
-        className="w-full mt-16 h-10 rounded-md focus:outline-none bg-gray-10 border-solid border border-white-10 text-zinc-300 p-2.5 "
+        className="dark:text-white-10 text-gray-10 w-full mt-16 h-10 rounded-md focus:outline-none dark:bg-gray-10 border-solid dark:border dark:border-white-10 text-zinc-300 p-2.5  bg-white-10 border-gray-1 border-2"
         onChange={(e) => setSearch(e.target.value)}
       />
       <div className="grid xxl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  flex justify-between gap-x-32 gap-y-12 pt-4">

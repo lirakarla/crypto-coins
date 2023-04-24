@@ -23,24 +23,26 @@ const CoinView: FC<CoinProps> = () => {
     );
   }
   return (
-    <div className="px-60 py-20 bg-gray-10">
+    <div className="2xl:px-60 xl:px-40 lg:px-40 md:px-36 px-10 py-10 dark:bg-gray-10 bg-white-10">
       <div className="flex gap-4 mb-8">
         <img className="h-16 w-16 inline" alt="coinLogo" src={coin.image} />
         <div>
           <h1 className="text-purple-5 text-3xl font-extrabold text-left">
             {coin.symbol.toUpperCase()}
           </h1>
-          <h2 className="text-white-5 text-xl font-bold">{coin.id}</h2>
+          <h2 className="dark:text-white-5 text-xl font-bold text-gray-5">
+            {coin.id}
+          </h2>
         </div>
       </div>
-      <p className="text-white-5 text-left text-lg">
+      <p className="dark:text-white-5 text-left text-lg text-gray-5">
         PRICE: $ {new Intl.NumberFormat().format(coin.price)}
       </p>
-      <p className="text-white-5 text-left text-lg">
+      <p className="dark:text-white-5 text-left text-lg text-gray-5">
         SUPPLY: {new Intl.NumberFormat().format(coin.supply)}
       </p>
       <div className="text-justify mt-6 ">
-        <span className="text-gray-1  text-lg break-words text-justify">
+        <span className="dark:text-gray-1  text-lg break-words text-justify text-slate-500">
           {coin.description}
         </span>
       </div>

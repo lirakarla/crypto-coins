@@ -1,9 +1,37 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
+import { BsSun, BsMoon } from "react-icons/bs";
 import { popularCrypto } from "../constants";
 interface HeaderProps {}
 
 const Header: FC<HeaderProps> = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(true);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const toggleDarkmode = () => {
+    const root = window.document.documentElement;
+    if (theme === "dark") {
+      root.classList.remove("dark");
+      root.classList.add("light");
+      localStorage.setItem("theme", "light");
+      setTheme("light");
+    } else {
+      root.classList.remove("light");
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setTheme("dark");
+    }
+  };
+  useEffect(() => {
+    //setup initial theme
+    if (theme === "dark") {
+      const root = window.document.documentElement;
+      root.classList.remove("light");
+      root.classList.add("dark");
+    } else {
+      const root = window.document.documentElement;
+      root.classList.remove("dark");
+      root.classList.add("light");
+    }
+  }, []);
   return (
     <nav
       className="
@@ -16,7 +44,8 @@ const Header: FC<HeaderProps> = () => {
           md:py-0
           text-lg text-gray-700
           bg-white
-          px-20
+          2xl:px-20
+          px-10
         "
     >
       <div>
@@ -72,6 +101,19 @@ const Header: FC<HeaderProps> = () => {
               </a>
             </li>
           ))}
+          <li className="flex 2xl:justify-normal 2xl:items-center md:justify-normal md:items-center justify-center">
+            {theme === "light" ? (
+              <BsSun
+                className="h-6 w-6 text-white-10 cursor-pointer inline-flex"
+                onClick={() => toggleDarkmode()}
+              />
+            ) : (
+              <BsMoon
+                className="h-6 w-6 text-white-10 cursor pointer inline-flex"
+                onClick={() => toggleDarkmode()}
+              />
+            )}
+          </li>
         </ul>
       </div>
     </nav>

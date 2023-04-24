@@ -9,7 +9,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div className="App h-screen bg-gray-10">
+      <div className="App h-screen bg-gray-10 light:bg-white-10">
         <Header></Header>
         <AvailableCoinsView></AvailableCoinsView>
         <ToastContainer></ToastContainer>
